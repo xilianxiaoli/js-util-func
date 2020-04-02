@@ -1,13 +1,19 @@
 
 /**
  * @description
- * 金额千分化
+ * 金额千分化，可选择在格式化前可做四舍五入处理
  * @export
- * @param {*} money 金额
- * @param {*} [decimalLength=-1] 四舍五入保留小数点位数
+ * @param {string|number} money 金额
+ * @param {number} [decimalLength=0] 需保留小数点位数
  * @returns {string}
+ * @example
+ * Utils.moneyThousandFormat(9999)
+ * // => '9,999'
+ * 
+ * Utils.moneyThousandFormat(9999.355, 2)
+ * // => '9,999.36'
  */
-export function moneyThousandFormat(money, decimalLength = -1) {
+export function moneyThousandFormat(money, decimalLength = 0) {
     if (Number(money).toString().indexOf('.') > 0) {
         const formatText = decimalLength > 0 ? toFixed(money, decimalLength) : Number(money);
         const _list = formatText.toString().split('.');

@@ -8,8 +8,10 @@
   },
   "scripts": {
     "test": "npm run build && nyc mocha",
-    "build": "babel src -d lib",
-    "build:doc": "jsdoc -c jsdoc.json"
+    "build": "babel src -d lib -s",
+    "build:watch": "babel src -d lib -s -w",
+    "doc": "jsdoc -c jsdoc.json",
+    "demo":"babel-node --inspect ./demo/index.js"
   },
   "repository": {
     "type": "git",

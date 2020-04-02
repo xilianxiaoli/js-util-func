@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.92% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/26</span>
+                <span class='fraction'>12/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.64% </span>
+                <span class="strong">36.36% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/22</span>
+                <span class='fraction'>8/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.92% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/26</span>
+                <span class='fraction'>12/26</span>
             </div>
         
             
@@ -174,17 +174,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -202,9 +203,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -265,21 +265,21 @@ exports.floatAddZero = floatAddZero;
 &nbsp;
 /**
  * @description
- * 金额千分化
+ * 金额千分化，在格式化前可做四舍五入
  * @export
- * @param {*} money 金额
- * @param {*} [decimalLength=-1] 四舍五入保留小数点位数
+ * @param {string|number} money 金额
+ * @param {number} [decimalLength=0] 需保留小数点位数
  * @returns {string}
  */
-function <span class="fstat-no" title="function not covered" >moneyThousandFormat(</span>money) {
-  var decimalLength = <span class="cstat-no" title="statement not covered" >arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : -1;</span>
+function moneyThousandFormat(money) {
+  var decimalLength = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (Number(money).toString().indexOf('.') &gt; 0) {</span>
-    var formatText = <span class="cstat-no" title="statement not covered" >decimalLength &gt; 0 ? toFixed(money, decimalLength) : Number(money);</span>
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (Number(money).toString().indexOf('.') &gt; 0) {
+    var formatText = decimalLength &gt; 0 ? toFixed(money, decimalLength) : <span class="branch-1 cbranch-no" title="branch not covered" >Number(money);</span>
 &nbsp;
-    var _list = <span class="cstat-no" title="statement not covered" >formatText.toString().split('.');</span>
+    var _list = formatText.toString().split('.');
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return _list[0].replace(/\B(?=(?:\S{3})+$)/g, ',') + '.' + _list[1];</span>
+    return _list[0].replace(/\B(?=(?:\S{3})+$)/g, ',') + '.' + _list[1];
   }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return String(money).replace(/\B(?=(?:\S{3})+$)/g, ',');</span>
@@ -358,7 +358,7 @@ function <span class="fstat-no" title="function not covered" >floatAddZero(</spa
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Apr 02 2020 16:09:29 GMT+0800 (中国标准时间)
+                at Thu Apr 02 2020 16:30:01 GMT+0800 (中国标准时间)
             </div>
         </div>
         <script src="prettify.js"></script>

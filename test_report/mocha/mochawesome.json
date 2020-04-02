@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2020-04-02T08:09:29.797Z",
-    "end": "2020-04-02T08:09:29.802Z",
-    "duration": 5,
+    "start": "2020-04-02T11:10:07.716Z",
+    "end": "2020-04-02T11:10:07.740Z",
+    "duration": 24,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "9a4ddd6c-69ee-4afd-a69f-20e8f6b014cb",
+      "uuid": "cf48199f-a5bb-4311-b9ee-7e65949505ef",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,40 +27,40 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "58744134-d0dd-4c31-acc1-31fa5ab8750b",
-          "title": "xxx",
+          "uuid": "27a33211-f007-4e26-978d-db8bca5fb304",
+          "title": "number",
           "fullFile": "D:\\mycode\\js-util-func\\test\\number.test.js",
           "file": "\\test\\number.test.js",
           "beforeHooks": [],
           "afterHooks": [],
           "tests": [
             {
-              "title": "mmm",
-              "fullTitle": "xxx mmm",
+              "title": "金额千分化 moneyThousandFormat",
+              "fullTitle": "number 金额千分化 moneyThousandFormat",
               "timedOut": false,
-              "duration": 1,
+              "duration": 5,
               "state": "passed",
               "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "expect(Utils.toFixed(1.2345, 2)).to.equal(1.23)\ndone()",
+              "code": "expect(Utils.moneyThousandFormat(9,0)).to.equal('9');\nexpect(Utils.moneyThousandFormat(9)).to.equal('9');\nexpect(Utils.moneyThousandFormat(99)).to.equal('99');\nexpect(Utils.moneyThousandFormat(999)).to.equal('999');\nexpect(Utils.moneyThousandFormat(9999)).to.equal('9,999');\nexpect(Utils.moneyThousandFormat(9.355, 2)).to.equal('9.36');\nexpect(Utils.moneyThousandFormat(99.355, 2)).to.equal('99.36');\nexpect(Utils.moneyThousandFormat(9999.355, 2)).to.equal('9,999.36');\ndone()",
               "err": {},
-              "uuid": "7a185b90-4da9-49cc-a425-bcb1fdef494d",
-              "parentUUID": "58744134-d0dd-4c31-acc1-31fa5ab8750b",
+              "uuid": "971bbc94-c22e-42ab-bca0-5a27785408bd",
+              "parentUUID": "27a33211-f007-4e26-978d-db8bca5fb304",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "7a185b90-4da9-49cc-a425-bcb1fdef494d"
+            "971bbc94-c22e-42ab-bca0-5a27785408bd"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1,
+          "duration": 5,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
