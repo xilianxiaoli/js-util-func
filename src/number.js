@@ -69,13 +69,26 @@ export function numAddZero(num, length = 1) {
 export function floatAddZero(num, length) {
     const pointNum = String(num).split('.')[1];
     let s = ''
-    if(pointNum){
+    if (pointNum) {
         let add = length - pointNum.length;
         if (add > 0) {
             s = new Array(add).fill(0).join('')
         }
-    }else{
-        s= '.'+new Array(length).fill(0).join('')
+    } else {
+        s = '.' + new Array(length).fill(0).join('')
     }
     return num + s;
+}
+
+/**
+ * @description
+ * 保留小数点后n位
+ * @export
+ * @param {string|number} val 数值
+ * @param {string|number} length 保留的位数
+ * @returns {string}
+ */
+export function toFixed4(val, length) {
+    const reg = new RegExp(`^(\\d*\\.\\d{${length}}).*$`)
+    return String(val).replace(reg, "$1");
 }
