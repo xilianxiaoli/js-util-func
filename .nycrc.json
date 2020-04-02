@@ -1,0 +1,6 @@
+{
+    "reporter":"html",
+    "report-dir":"./test_report/nyc/",
+    "include":["lib/**"],
+    "exclude":["lib/index.js"]
+}

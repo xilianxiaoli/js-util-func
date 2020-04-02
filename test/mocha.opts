@@ -1,0 +1,2 @@
+--reporter mochawesome
+--reporter-options reportDir=./test_report/mocha/

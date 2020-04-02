@@ -1,0 +1,39 @@
+{
+  "name": "js-util-func",
+  "version": "1.0.0",
+  "description": "归纳工作中使用频率较高的工具类函数，以便于其他项目复用。",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run build && nyc mocha",
+    "build": "babel src -d lib",
+    "build:doc": "jsdoc -c jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@wx-gitlab.xunlei.cn:lizhencheng/js-util-func.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "babel-plugin-istanbul": "^6.0.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "cross-env": "^7.0.2",
+    "docdash": "^1.2.0",
+    "minami": "^1.2.3",
+    "mocha": "^7.1.1",
+    "mochawesome": "^5.0.0",
+    "nyc": "^15.0.0"
+  },
+  "dependencies": {
+    "jsdoc": "^3.6.3"
+  }
+}
