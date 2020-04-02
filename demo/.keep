@@ -1,0 +1,5 @@
+在demo文件夹下 新增 index.js 文件即可用于编码调试
+如下：
+
+const { toFixed4 } = require('../lib/number')
+console.log(toFixed4('1.355', 1))
