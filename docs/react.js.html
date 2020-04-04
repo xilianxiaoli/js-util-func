@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>string.js - Documentation</title>
+    <title>react.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">string.js</h1>
+    <h1 class="page-title">react.js</h1>
     
 
     
@@ -47,68 +47,69 @@
             <pre class="prettyprint source linenums"><code>
 /**
  * @description
- * 过滤字符串中的表情和空格
+ * 为了避免组件已经销毁，但异步函数还未结束导致的异常 [高阶组件]
  * @export
- * @category String
- * @param {*} str
- * @returns string
- */
-export function filterEmojiAndSpace(str){
-    const spaceReg = /\s+/;
-    const emojiReg = /\w*(\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]\w*/g;
-    return str.replace(spaceReg, '').replace(emojiReg, '');
-}
-
-/**
- * @description
- * 过滤字符串前后空格
- * @export
- * @category String
- * @param {*} str
- * @returns string
+ * @param {object} targetComponent 执行组件
+ * @returns {object} 执行组件
  * @example
- * trim('  sdfsd  ');
- * return sdfsd
+ * InjectUnmount(targetComponent)
  */
-export function trim(str) {
-    return str.replace(/(^\s*)|(\s*$)/g, "");
+export function InjectUnmount (targetComponent){
+    let willUnmount = targetComponent.prototype.componentWillUnmount
+    targetComponent.prototype.componentWillUnmount = function () {
+        if (willUnmount) willUnmount.call(this, ...arguments);
+        this.unmount = true;
+     }
+    let setState = targetComponent.prototype.setState
+    targetComponent.prototype.setState = function () {
+        if ( this.unmount ) return ;
+        setState.call(this, ...arguments);
+    }
+    return targetComponent
 }
 
 /**
  * @description
- * 翻转字符串
- * @export
- * @param {string} str
- * @returns {string}
+ * 给组件预设props [高阶组件]
+ * @param {object} defaultProps 预设参数
+ * @returns {function(*): function(*=): *}
+ * @example
+ * withDefaultProps({...props})(Component)
  */
-export function reversString(str){
-    if(typeof(str) !== 'string'){
-        console.warn('reversString should be string')
-        return str
-    }
-    let re = '';
-    for (const iterator of str) {
-        re = iterator + re;
-    }
-    return re;
-}
+export function withDefaultProps (defaultProps) {
+    return TargetComponent => props => &lt;TargetComponent {...defaultProps} {...props}/>;
+} 
 
 /**
  * @description
- * 生成随机字符串
- * @export
- * @param {*} len 生成的字符串长度
- * @returns {string}
+ * 对props做预处理 [高阶组件]
+ * @param {function} mapProps
+ * @returns {function(*): function(*=): *}
+ * @example
+ * connectComponent(props => props.params)(Component);
  */
-export function genRandomStr(len) {
-    let text = '';
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+export function mapPropsComponent ( mapProps) {
+    return TargetComponent => props => &lt;TargetComponent {...mapProps(props)} />;
+} 
 
-    for (let i = 0; i &lt; len; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-
-    return text;
+/**
+ * @description
+ * 异步方法封装成 effect 方法，简化redux中的编码
+ * @param {*} func 异步函数
+ * @returns {*function(*):*} 生成器函数
+ * @example
+ * const fetch = ()=>{...}
+ * getEffectFunc(fetch)
+ */
+ export function getEffectFunc(func) {
+    return function* effect({payload, callback, errorCallback}, {call}) {
+        try {
+            const resp = yield call(func, payload);
+            if (callback) callback(resp);
+        } catch (e) {
+            if (errorCallback) errorCallback();
+        }
+    };
 }</code></pre>
         </article>
     </section>

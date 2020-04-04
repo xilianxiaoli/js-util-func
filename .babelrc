@@ -8,5 +8,7 @@
                 "istanbul"
             ]
         }
-    }
+    },
+    "sourceMaps":true,
+    "ignore":["*/*.jsx"]
 }

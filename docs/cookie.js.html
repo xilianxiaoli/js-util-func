@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>string.js - Documentation</title>
+    <title>cookie.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">string.js</h1>
+    <h1 class="page-title">cookie.js</h1>
     
 
     
@@ -47,68 +47,52 @@
             <pre class="prettyprint source linenums"><code>
 /**
  * @description
- * 过滤字符串中的表情和空格
+ * 获取 cookie 
  * @export
- * @category String
- * @param {*} str
- * @returns string
+ * @param {string} name
+ * @returns {string | null}
  */
-export function filterEmojiAndSpace(str){
-    const spaceReg = /\s+/;
-    const emojiReg = /\w*(\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]\w*/g;
-    return str.replace(spaceReg, '').replace(emojiReg, '');
+export function getCookie(name) {
+    const arr = document.cookie.match(new RegExp('(^| )' + name + '=([^;]*)(;|$)'));
+    if (arr !== null) {
+        return decodeURIComponent(arr[2]);
+    }
+    return null;
 }
 
 /**
  * @description
- * 过滤字符串前后空格
+ * 设置 cookie
  * @export
- * @category String
- * @param {*} str
- * @returns string
- * @example
- * trim('  sdfsd  ');
- * return sdfsd
+ * @param {string} name 
+ * @param {string | number | boolean} value
+ * @param {number} [expiresDay=0] 有效天数，默认为0，会话cookie
+ * @param {string} path
+ * @returns {void}
  */
-export function trim(str) {
-    return str.replace(/(^\s*)|(\s*$)/g, "");
+export function setCookie(name, value, expiresDay = 0, path) {
+    let expStr = '';
+    if (expiresDay !== 0) {
+        const exp = new Date();
+        exp.setTime(exp.getTime() + expiresDay * 24 * 60 * 60 * 1000);
+        expStr = ';expires=' + exp.toUTCString();
+    }
+    let pathStr = '';
+    if (path) {
+        pathStr = ';path=' + path;
+    }
+    document.cookie = name + '=' + encodeURIComponent(value) + pathStr + expStr;
 }
 
 /**
  * @description
- * 翻转字符串
+ * 删除 cookie
  * @export
- * @param {string} str
- * @returns {string}
+ * @param {string} name
+ * @returns {void}
  */
-export function reversString(str){
-    if(typeof(str) !== 'string'){
-        console.warn('reversString should be string')
-        return str
-    }
-    let re = '';
-    for (const iterator of str) {
-        re = iterator + re;
-    }
-    return re;
-}
-
-/**
- * @description
- * 生成随机字符串
- * @export
- * @param {*} len 生成的字符串长度
- * @returns {string}
- */
-export function genRandomStr(len) {
-    let text = '';
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-    for (let i = 0; i &lt; len; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-
-    return text;
+export function delCookie(name) {
+    setCookie(name, '', -1);
 }</code></pre>
         </article>
     </section>

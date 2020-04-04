@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>string.js - Documentation</title>
+    <title>validate.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">string.js</h1>
+    <h1 class="page-title">validate.js</h1>
     
 
     
@@ -47,68 +47,90 @@
             <pre class="prettyprint source linenums"><code>
 /**
  * @description
- * 过滤字符串中的表情和空格
+ * 验证手机号是否合法，为适应更多网络电话号段，不对号段做校验
  * @export
- * @category String
- * @param {*} str
- * @returns string
+ * @param {string} phone
+ * @returns {boolean}
  */
-export function filterEmojiAndSpace(str){
-    const spaceReg = /\s+/;
-    const emojiReg = /\w*(\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]\w*/g;
-    return str.replace(spaceReg, '').replace(emojiReg, '');
+export function isPhoneNumber(phone) {
+    let result = false;
+    const phoneReg = /^(1[1-9][0-9])[0-9]{8}$/;
+
+    if (phone) {
+        result = phoneReg.test(phone);
+    }
+    return result;
+}
+
+
+/**
+ * @description
+ * 判断平台是否是 iOS
+ * @export
+ * @param {string} [ua=window.navigator.userAgent]
+ * @returns {boolean}
+ */
+export function isiOS(ua) {
+    if (!ua) {
+        ua = window.navigator.userAgent;
+    }
+    return !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 }
 
 /**
  * @description
- * 过滤字符串前后空格
+ * 判断平台是否是安卓
  * @export
- * @category String
- * @param {*} str
- * @returns string
- * @example
- * trim('  sdfsd  ');
- * return sdfsd
+ * @param {string} [ua=window.navigator.userAgent]
+ * @returns {boolean}
  */
-export function trim(str) {
-    return str.replace(/(^\s*)|(\s*$)/g, "");
+export function isAndroid(ua) {
+    if (!ua) {
+        ua = window.navigator.userAgent;
+    }
+    return -1 &lt; ua.indexOf('Android') || -1 &lt; ua.indexOf('Adr');
 }
 
 /**
  * @description
- * 翻转字符串
+ * 是否是对象类型
  * @export
- * @param {string} str
- * @returns {string}
+ * @param {*} obj
+ * @returns {boolean}
  */
-export function reversString(str){
-    if(typeof(str) !== 'string'){
-        console.warn('reversString should be string')
-        return str
-    }
-    let re = '';
-    for (const iterator of str) {
-        re = iterator + re;
-    }
-    return re;
+export function isObject(obj) {
+    return Object.prototype.toString.apply(obj) === '[object Object]';
 }
 
 /**
  * @description
- * 生成随机字符串
+ * 是否是邮箱格式
  * @export
- * @param {*} len 生成的字符串长度
- * @returns {string}
+ * @param {string} email
+ * @returns {boolean}
  */
-export function genRandomStr(len) {
-    let text = '';
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+export function isEmail(email) {
+    let result = false;
+    const emailReg = /^(([^&lt;>()\[\]\\.,;:\s@"]+(\.[^&lt;>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    for (let i = 0; i &lt; len; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    if (email) {
+        result = emailReg.test(email);
     }
+    return result;
+}
 
-    return text;
+/**
+ * @description
+ * 判断目标值是否是 Null
+ * @export
+ * @param {*} val 目标值
+ * @returns {boolean}
+ */
+export function isNull(val) {
+    if (!val &amp;&amp; typeof (val) === 'object') {
+        return true
+    }
+    return false
 }</code></pre>
         </article>
     </section>
