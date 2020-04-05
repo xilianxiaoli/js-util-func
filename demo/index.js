@@ -1,6 +1,7 @@
 // const { isEmptyObject } = require('../lib/number')
 const { filterEmptyVal,isEmptyObject,isEqual,uniqueArray } = require('../lib/func')
 const {moneyUppercase,splitPoint,toFixed}  = require('../lib/number') 
+const {filterEmojiAndSpace,genRandomStr}  = require('../lib/string') 
 let aa = {
     name: 'xxx',
     age: 10,
@@ -59,7 +60,7 @@ let e2 = {
         d:[]
     }
 }
-// console.log(isEqual(e1,e2))
+console.log(isEqual(e1,e2))
 
 
 // console.log(uniqueArray(
@@ -71,7 +72,6 @@ let e2 = {
 // const all = require('../lib/index').default
 // console.log(all)
 
-console.log(moneyUppercase(1.2))
-console.log(moneyUppercase(999.99))
-console.log(moneyUppercase(9999999999.99))
-console.log(toFixed(1.23))
+
+console.log(genRandomStr(3))
+console.log(filterEmojiAndSpace('aa  '))

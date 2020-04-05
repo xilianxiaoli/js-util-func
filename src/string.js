@@ -1,28 +1,30 @@
 
 /**
  * @description
- * 过滤字符串中的表情和空格
+ * 过滤字符串中的表情和前后空格
  * @export
- * @category String
- * @param {*} str
- * @returns string
+ * @param {string} str 需要过滤的字符串
+ * @returns {string} 返回过滤后的字符串
+ * @example
+ * Utils.filterEmojiAndSpace('  aa  ')
+ * // => 'aa'
  */
 export function filterEmojiAndSpace(str){
     const spaceReg = /\s+/;
     const emojiReg = /\w*(\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]\w*/g;
-    return str.replace(spaceReg, '').replace(emojiReg, '');
+    let aa =str.replace(spaceReg, '').replace(emojiReg, '');
+    return aa
 }
 
 /**
  * @description
  * 过滤字符串前后空格
  * @export
- * @category String
- * @param {*} str
- * @returns string
+ * @param {string} str 需要过滤的字符串
+ * @returns {string} 返回过滤后的字符串
  * @example
- * trim('  sdfsd  ');
- * return sdfsd
+ * Utils.trim('  sdfsd  ');
+ * // => 'sdfsd'
  */
 export function trim(str) {
     return str.replace(/(^\s*)|(\s*$)/g, "");
@@ -32,8 +34,11 @@ export function trim(str) {
  * @description
  * 翻转字符串
  * @export
- * @param {string} str
- * @returns {string}
+ * @param {string} str 需要翻转的字符串 
+ * @returns {string} 返回翻转后的字符串
+ * @example
+ * Utils.reversString('abc')
+ * // => 'cba'
  */
 export function reversString(str){
     if(typeof(str) !== 'string'){
@@ -49,12 +54,19 @@ export function reversString(str){
 
 /**
  * @description
- * 生成随机字符串
+ * 生成随机字符串，字符包括大小写字母和数字
  * @export
- * @param {*} len 生成的字符串长度
- * @returns {string}
+ * @param {number|string} len 生成的字符串长度
+ * @returns {string} 返回随机字符串
+ * @example
+ * Utils.genRandomStr(5)
+ * // => 'abcdf' 随机字符串
  */
 export function genRandomStr(len) {
+    len = Number(len)
+    if(!len){
+        return '';
+    }
     let text = '';
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
