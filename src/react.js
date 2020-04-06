@@ -50,7 +50,7 @@ export function mapPropsComponent ( mapProps) {
  * @description
  * 异步方法封装成 effect 方法，简化redux中的编码
  * @param {*} func 异步函数
- * @returns {*function(*):*} 生成器函数
+ * @returns {Generator} 生成器函数
  * @example
  * const fetch = ()=>{...}
  * getEffectFunc(fetch)

@@ -9,11 +9,9 @@
  * Utils.filterEmojiAndSpace('  aa  ')
  * // => 'aa'
  */
-export function filterEmojiAndSpace(str){
-    const spaceReg = /\s+/;
+export function filterEmojiAndSpace(str) {
     const emojiReg = /\w*(\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]\w*/g;
-    let aa =str.replace(spaceReg, '').replace(emojiReg, '');
-    return aa
+    return str.replace(emojiReg, '');
 }
 
 /**
@@ -40,8 +38,8 @@ export function trim(str) {
  * Utils.reversString('abc')
  * // => 'cba'
  */
-export function reversString(str){
-    if(typeof(str) !== 'string'){
+export function reversString(str) {
+    if (typeof (str) !== 'string') {
         console.warn('reversString should be string')
         return str
     }
@@ -64,7 +62,7 @@ export function reversString(str){
  */
 export function genRandomStr(len) {
     len = Number(len)
-    if(!len){
+    if (!len) {
         return '';
     }
     let text = '';

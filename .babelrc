@@ -9,6 +9,8 @@
             ]
         }
     },
-    "sourceMaps":true,
-    "ignore":["*/*.jsx"]
+    "plugins": [
+        "@babel/plugin-syntax-jsx"
+    ],
+    "sourceMaps": true
 }
