@@ -1,12 +1,12 @@
 
 /**
  * @description
- * 过滤字符串中的表情和前后空格
+ * 过滤字符串中的表情
  * @export
  * @param {string} str 需要过滤的字符串
  * @returns {string} 返回过滤后的字符串
  * @example
- * Utils.filterEmojiAndSpace('  aa  ')
+ * Utils.filterEmojiAndSpace('aa')
  * // => 'aa'
  */
 export function filterEmojiAndSpace(str) {

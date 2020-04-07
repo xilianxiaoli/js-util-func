@@ -43,6 +43,7 @@ export function watchTimeInterval(time, point, func, timeOverFunc) {
  * // => { q: 'js', qs: 'n' }
  */
 export function searchParams(search) {
+    /* istanbul ignore if */
     if (!search) {
         search = location.search
     }

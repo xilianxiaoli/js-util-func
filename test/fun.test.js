@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const Utils = require('../lib/index').default;
 
-describe.skip('func', function () {
+describe('func', function () {
     it('计时器-浏览器进程切后台后，去除进程暂停时间 watchTimeInterval', done => {
         let i = 0
         Utils.watchTimeInterval(5, 1000, () => {
@@ -19,6 +19,15 @@ describe.skip('func', function () {
                 }
             }
         }, 1000)
+    })
+    it('计时器-浏览器进程照常执行 watchTimeInterval', done => {
+        let i = 0
+        Utils.watchTimeInterval(5, 1000, () => {
+            i++
+        }, () => {
+            expect(i).to.be.equal(5)
+            done()
+        })
     })
     it('获取链接的参数，返回对象格式 searchParams', done => {
         expect(Utils.searchParams("?q=js&qs=n")).to.deep.equal({ q: 'js', qs: 'n' })
@@ -55,7 +64,9 @@ describe.skip('func', function () {
                 name: '333',
             }
         }
-        expect(Utils.filterEmptyVal(before)).to.deep.equal(after)
+        expect(Utils.filterEmptyVal(before)).to.deep.equal(after);
+        expect(Utils.filterEmptyVal(null)).to.be.equal(null)
+        expect(Utils.filterEmptyVal(123)).to.be.equal(123)
         done()
     })
     it('将对象的 key 和 value 通过连接符拼接成字符串 deepMakeObjToStr', done => {
@@ -67,7 +78,8 @@ describe.skip('func', function () {
                 { a: 'atext', b: 12, c: false, d: [1, 2, 3, 4, 5, { last: 'last-text', list: [99, 88] }] },
                 { a: 'atext', b: 12, c: false, d: [1, 2, 3, 4, 5, { last: 'last-text', list: [99, 88] }] },
                 { a: { a: { a: 'last-a' } } }
-            ]
+            ],
+            emptyList:[]
         }
         let objStr = 'name=xxx&age=10&sex=true&list=0=a=atext&b=12&c=false&d=0=1&1=2&2=3&3=4&4=5&5=last=last-text&list=0=99&1=88&1=a=atext&b=12&c=false&d=0=1&1=2&2=3&3=4&4=5&5=last=last-text&list=0=99&1=88&2=a=a=a=last-a&'
 
@@ -84,6 +96,7 @@ describe.skip('func', function () {
         expect(Utils.secondToTime(60 * 60)).to.deep.equal({day: 0, hour: 1, minute: 0, second: 0})
         expect(Utils.secondToTime(60 * 60 + 1)).to.deep.equal({day: 0, hour: 1, minute: 0, second: 1})
         expect(Utils.secondToTime(60 * 60 * 24 + 1)).to.deep.equal({day: 1, hour: 0, minute: 0, second: 1})
+        expect(Utils.secondToTime(-1)).to.deep.equal(undefined)
         done()
     })
     it('比较两个对象是否相等 isEqual',done=>{
@@ -138,8 +151,11 @@ describe.skip('func', function () {
                 123
             ]
         }
-        expect(Utils.isEqual(obj,obj1)).to.be.true
-        expect(Utils.isEqual(obj,obj2)).to.be.false
+        expect(Utils.isEqual(obj,obj1)).to.be.true;
+        expect(Utils.isEqual(obj,obj2)).to.be.false;
+        expect(Utils.isEqual(123,345)).to.be.false;
+        expect(Utils.isEqual(true,true)).to.be.true;
+        expect(Utils.isEqual({name:'xx'},{name:'xxx',age:10})).to.be.false;
         done()
     })
     it('数组去重，值包括基本类型和对象类型 uniqueArray',done=>{

@@ -55,6 +55,7 @@ export function isEmail(email) {
  * // => true
  */
 export function isiOS(ua) {
+    /* istanbul ignore if */
     if (!ua) {
         ua = window.navigator.userAgent;
     }
@@ -72,6 +73,7 @@ export function isiOS(ua) {
  * // => true
  */
 export function isAndroid(ua) {
+    /* istanbul ignore if */
     if (!ua) {
         ua = window.navigator.userAgent;
     }
@@ -89,6 +91,7 @@ export function isAndroid(ua) {
  * // => true
  */
 export function isWechat(ua){
+    /* istanbul ignore if */
     if (!ua) {
         ua = window.navigator.userAgent;
     }
@@ -101,6 +104,7 @@ export function isWechat(ua){
  * @export
  * @param {*} obj 需要判断的值
  * @returns {boolean} 返回判断结果
+ * @example
  * Utils.isObject({})
  * // => true
  * Utils.isObject(123)

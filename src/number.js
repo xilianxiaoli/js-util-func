@@ -16,7 +16,7 @@ import NP from 'number-precision';
  */
 export function moneyThousandFormat(money, decimalLength = 0) {
     if (Number(money).toString().indexOf('.') > 0) {
-        const formatText = decimalLength > 0 ? toFixed(money, decimalLength) : Number(money);
+        const formatText = decimalLength > 0 ? toFixed(money, decimalLength) : money;
         const _list = formatText.toString().split('.');
         return _list[0].replace(/\B(?=(?:\S{3})+$)/g, ',') + '.' + _list[1];
     }

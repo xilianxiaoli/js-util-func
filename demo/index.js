@@ -1,6 +1,6 @@
 // const { isEmptyObject } = require('../lib/number')
-const { filterEmptyVal,isEmptyObject,isEqual,uniqueArray } = require('../lib/func')
-const {moneyUppercase,splitPoint,toFixed}  = require('../lib/number') 
+const { filterEmptyVal,isEmptyObject,isEqual,uniqueArray,deepMakeObjToStr } = require('../lib/func')
+const {moneyUppercase,splitPoint,toFixed,NP}  = require('../lib/number') 
 const {filterEmojiAndSpace,genRandomStr}  = require('../lib/string') 
 let aa = {
     name: 'xxx',
@@ -36,6 +36,8 @@ let bb = {
 
 // name=xxx&age=10&sex=true&list=0=a=atext&b=12&c=false&d=0=1&1=2&2=3&3=4&4=5&5=last=last-text&list=0=99&1=88&1=a=atext&b=12&c=false&d=0=1&1=2&2=3&3=4&4=5&5=last=last-text&list=0=99&1=88&2=a=a=a=last-a&
 console.log(isEmptyObject(undefined))
+
+
 let e1 = {
     name:'xxx',
     age:0,
@@ -143,7 +145,18 @@ const {watchTimeInterval,sleep,secondToTime}  = require('../lib/func')
 // console.log(secondToTime(60*60))
 // console.log(secondToTime(60*60+1))
 // console.log(secondToTime(60*60*24+1))
+let objj = {
+    name: 'xxx',
+    age: 10,
+    sex: true,
+    list: [
+        { a: 'atext', b: 12, c: false, d: [1, 2, 3, 4, 5, { last: 'last-text', list: [99, 88] }] },
+        { a: 'atext', b: 12, c: false, d: [1, 2, 3, 4, 5, { last: 'last-text', list: [99, 88] }] },
+        { a: { a: { a: 'last-a' } } }
+    ],
+    emptyList:[]
+}
+console.log(deepMakeObjToStr(objj))
 
-const {setCookie}  = require('../lib/cookie') 
-
-setCookie('name','name_string',1,'page1')
+// name=xxx&age=10&sex=true&list=0=a=atext&b=12&c=false&d=0=1&1=2&2=3&3=4&4=5&5=last=last-text&list=0=99&1=88
+// &1=a=atext&b=12&c=false&d=0=1&1=2&2=3&3=4&4=5&5=last=last-text&list=0=99&1=88&2=a=a=a=last-a&

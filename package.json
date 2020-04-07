@@ -25,6 +25,7 @@
     "@babel/core": "^7.9.0",
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
     "babel-plugin-istanbul": "^6.0.0",
     "babel-register": "^6.26.0",
     "chai": "^4.2.0",

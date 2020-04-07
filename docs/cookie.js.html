@@ -29,7 +29,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#getCookie">getCookie</a></li><li><a href="global.html#setCookie">setCookie</a></li><li><a href="global.html#delCookie">delCookie</a></li><li><a href="global.html#watchTimeInterval">watchTimeInterval</a></li><li><a href="global.html#searchParams">searchParams</a></li><li><a href="global.html#isEmptyObject">isEmptyObject</a></li><li><a href="global.html#filterEmptyVal">filterEmptyVal</a></li><li><a href="global.html#deepMakeObjToStr">deepMakeObjToStr</a></li><li><a href="global.html#secondToTime">secondToTime</a></li><li><a href="global.html#isEqual">isEqual</a></li><li><a href="global.html#uniqueArray">uniqueArray</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#moneyThousandFormat">moneyThousandFormat</a></li><li><a href="global.html#toFixed">toFixed</a></li><li><a href="global.html#numAddZero">numAddZero</a></li><li><a href="global.html#floatAddZero">floatAddZero</a></li><li><a href="global.html#splitPoint">splitPoint</a></li><li><a href="global.html#decimalToPercent">decimalToPercent</a></li><li><a href="global.html#moneyUppercase">moneyUppercase</a></li><li><a href="global.html#InjectUnmount">InjectUnmount</a></li><li><a href="global.html#withDefaultProps">withDefaultProps</a></li><li><a href="global.html#mapPropsComponent">mapPropsComponent</a></li><li><a href="global.html#getEffectFunc">getEffectFunc</a></li><li><a href="global.html#filterEmojiAndSpace">filterEmojiAndSpace</a></li><li><a href="global.html#trim">trim</a></li><li><a href="global.html#reversString">reversString</a></li><li><a href="global.html#genRandomStr">genRandomStr</a></li><li><a href="global.html#isPhoneNumber">isPhoneNumber</a></li><li><a href="global.html#isiOS">isiOS</a></li><li><a href="global.html#isAndroid">isAndroid</a></li><li><a href="global.html#isObject">isObject</a></li><li><a href="global.html#isEmail">isEmail</a></li><li><a href="global.html#isNull">isNull</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#getCookie">getCookie</a></li><li><a href="global.html#setCookie">setCookie</a></li><li><a href="global.html#delCookie">delCookie</a></li><li><a href="global.html#watchTimeInterval">watchTimeInterval</a></li><li><a href="global.html#searchParams">searchParams</a></li><li><a href="global.html#isEmptyObject">isEmptyObject</a></li><li><a href="global.html#filterEmptyVal">filterEmptyVal</a></li><li><a href="global.html#deepMakeObjToStr">deepMakeObjToStr</a></li><li><a href="global.html#secondToTime">secondToTime</a></li><li><a href="global.html#isEqual">isEqual</a></li><li><a href="global.html#uniqueArray">uniqueArray</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#moneyThousandFormat">moneyThousandFormat</a></li><li><a href="global.html#toFixed">toFixed</a></li><li><a href="global.html#numAddZero">numAddZero</a></li><li><a href="global.html#floatAddZero">floatAddZero</a></li><li><a href="global.html#splitPoint">splitPoint</a></li><li><a href="global.html#decimalToPercent">decimalToPercent</a></li><li><a href="global.html#moneyUppercase">moneyUppercase</a></li><li><a href="global.html#InjectUnmount">InjectUnmount</a></li><li><a href="global.html#withDefaultProps">withDefaultProps</a></li><li><a href="global.html#mapPropsComponent">mapPropsComponent</a></li><li><a href="global.html#getEffectFunc">getEffectFunc</a></li><li><a href="global.html#filterEmojiAndSpace">filterEmojiAndSpace</a></li><li><a href="global.html#trim">trim</a></li><li><a href="global.html#reversString">reversString</a></li><li><a href="global.html#genRandomStr">genRandomStr</a></li><li><a href="global.html#isPhoneNumber">isPhoneNumber</a></li><li><a href="global.html#isEmail">isEmail</a></li><li><a href="global.html#isiOS">isiOS</a></li><li><a href="global.html#isAndroid">isAndroid</a></li><li><a href="global.html#isWechat">isWechat</a></li><li><a href="global.html#isObject">isObject</a></li><li><a href="global.html#isNull">isNull</a></li></ul>
 </nav>
 
 <div id="main">
@@ -49,8 +49,11 @@
  * @description
  * 获取 cookie 
  * @export
- * @param {string} name
- * @returns {string | null}
+ * @param {string} name cookie的name
+ * @returns {string | null} 返回查询到的字符串，若查询不到，则返回 null
+ * @example
+ * Utils.getCookie('name')
+ * // => name_string
  */
 export function getCookie(name) {
     const arr = document.cookie.match(new RegExp('(^| )' + name + '=([^;]*)(;|$)'));
@@ -64,13 +67,17 @@ export function getCookie(name) {
  * @description
  * 设置 cookie
  * @export
- * @param {string} name 
- * @param {string | number | boolean} value
- * @param {number} [expiresDay=0] 有效天数，默认为0，会话cookie
- * @param {string} path
+ * @param {string} name cookie的name
+ * @param {string | number | boolean} value 需要设置的值
+ * @param {number} [expiresDay=0] 有效天数，默认为0
+ * @param {string} [path='/'] cookie path
+ * @param {string} [domain=''] cookie domain
  * @returns {void}
+ * @example
+ * Utils.setCookie('name','name_string',1,'/page1','xx.xxx.com')
+ * Utils.setCookie('name','name_string')
  */
-export function setCookie(name, value, expiresDay = 0, path) {
+export function setCookie(name, value, expiresDay = 0, path = '/', domain = '') {
     let expStr = '';
     if (expiresDay !== 0) {
         const exp = new Date();
@@ -81,18 +88,26 @@ export function setCookie(name, value, expiresDay = 0, path) {
     if (path) {
         pathStr = ';path=' + path;
     }
-    document.cookie = name + '=' + encodeURIComponent(value) + pathStr + expStr;
+    let domainStr = ''
+    if (domain) {
+        domainStr = '; domain=' + domain
+    }
+    document.cookie = name + '=' + encodeURIComponent(value) + pathStr + expStr + domainStr;
 }
 
 /**
  * @description
  * 删除 cookie
  * @export
- * @param {string} name
+ * @param {string} name cookie name
+ * @param {string} [path='/'] cookie path
+ * @param {string} [domain=''] cookie domain
  * @returns {void}
+ * @example
+ * Utils.delCookie('name','/','')
  */
-export function delCookie(name) {
-    setCookie(name, '', -1);
+export function delCookie(name, path = '/', domain = '') {
+    setCookie(name, '', -1, path, domain);
 }</code></pre>
         </article>
     </section>
@@ -107,7 +122,7 @@ export function delCookie(name) {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Apr 06 2020 20:10:09 GMT+0800 (GMT+08:00) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Apr 07 2020 15:54:50 GMT+0800 (中国标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

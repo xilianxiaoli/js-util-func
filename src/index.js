@@ -11,12 +11,7 @@ let output = {
       ...funcUtil,
       ...stringUtil,
       ...validateUtil,
-}
-if (process.env.NODE_ENV !== 'test') {
-      output = {
-            ...output,
-            ...reactUtil
-      }
+      ...reactUtil
 }
 
 export default {

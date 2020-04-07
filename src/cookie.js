@@ -29,6 +29,7 @@ export function getCookie(name) {
  * @returns {void}
  * @example
  * Utils.setCookie('name','name_string',1,'/page1','xx.xxx.com')
+ * Utils.setCookie('name','name_string')
  */
 export function setCookie(name, value, expiresDay = 0, path = '/', domain = '') {
     let expStr = '';

@@ -29,7 +29,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#getCookie">getCookie</a></li><li><a href="global.html#setCookie">setCookie</a></li><li><a href="global.html#delCookie">delCookie</a></li><li><a href="global.html#watchTimeInterval">watchTimeInterval</a></li><li><a href="global.html#searchParams">searchParams</a></li><li><a href="global.html#isEmptyObject">isEmptyObject</a></li><li><a href="global.html#filterEmptyVal">filterEmptyVal</a></li><li><a href="global.html#deepMakeObjToStr">deepMakeObjToStr</a></li><li><a href="global.html#secondToTime">secondToTime</a></li><li><a href="global.html#isEqual">isEqual</a></li><li><a href="global.html#uniqueArray">uniqueArray</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#moneyThousandFormat">moneyThousandFormat</a></li><li><a href="global.html#toFixed">toFixed</a></li><li><a href="global.html#numAddZero">numAddZero</a></li><li><a href="global.html#floatAddZero">floatAddZero</a></li><li><a href="global.html#splitPoint">splitPoint</a></li><li><a href="global.html#decimalToPercent">decimalToPercent</a></li><li><a href="global.html#moneyUppercase">moneyUppercase</a></li><li><a href="global.html#InjectUnmount">InjectUnmount</a></li><li><a href="global.html#withDefaultProps">withDefaultProps</a></li><li><a href="global.html#mapPropsComponent">mapPropsComponent</a></li><li><a href="global.html#getEffectFunc">getEffectFunc</a></li><li><a href="global.html#filterEmojiAndSpace">filterEmojiAndSpace</a></li><li><a href="global.html#trim">trim</a></li><li><a href="global.html#reversString">reversString</a></li><li><a href="global.html#genRandomStr">genRandomStr</a></li><li><a href="global.html#isPhoneNumber">isPhoneNumber</a></li><li><a href="global.html#isiOS">isiOS</a></li><li><a href="global.html#isAndroid">isAndroid</a></li><li><a href="global.html#isObject">isObject</a></li><li><a href="global.html#isEmail">isEmail</a></li><li><a href="global.html#isNull">isNull</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#getCookie">getCookie</a></li><li><a href="global.html#setCookie">setCookie</a></li><li><a href="global.html#delCookie">delCookie</a></li><li><a href="global.html#watchTimeInterval">watchTimeInterval</a></li><li><a href="global.html#searchParams">searchParams</a></li><li><a href="global.html#isEmptyObject">isEmptyObject</a></li><li><a href="global.html#filterEmptyVal">filterEmptyVal</a></li><li><a href="global.html#deepMakeObjToStr">deepMakeObjToStr</a></li><li><a href="global.html#secondToTime">secondToTime</a></li><li><a href="global.html#isEqual">isEqual</a></li><li><a href="global.html#uniqueArray">uniqueArray</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#moneyThousandFormat">moneyThousandFormat</a></li><li><a href="global.html#toFixed">toFixed</a></li><li><a href="global.html#numAddZero">numAddZero</a></li><li><a href="global.html#floatAddZero">floatAddZero</a></li><li><a href="global.html#splitPoint">splitPoint</a></li><li><a href="global.html#decimalToPercent">decimalToPercent</a></li><li><a href="global.html#moneyUppercase">moneyUppercase</a></li><li><a href="global.html#InjectUnmount">InjectUnmount</a></li><li><a href="global.html#withDefaultProps">withDefaultProps</a></li><li><a href="global.html#mapPropsComponent">mapPropsComponent</a></li><li><a href="global.html#getEffectFunc">getEffectFunc</a></li><li><a href="global.html#filterEmojiAndSpace">filterEmojiAndSpace</a></li><li><a href="global.html#trim">trim</a></li><li><a href="global.html#reversString">reversString</a></li><li><a href="global.html#genRandomStr">genRandomStr</a></li><li><a href="global.html#isPhoneNumber">isPhoneNumber</a></li><li><a href="global.html#isEmail">isEmail</a></li><li><a href="global.html#isiOS">isiOS</a></li><li><a href="global.html#isAndroid">isAndroid</a></li><li><a href="global.html#isWechat">isWechat</a></li><li><a href="global.html#isObject">isObject</a></li><li><a href="global.html#isNull">isNull</a></li></ul>
 </nav>
 
 <div id="main">
@@ -138,7 +138,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cookie.js.html">cookie.js</a>, <a href="cookie.js.html#line9">line 9</a>
+        <a href="cookie.js.html">cookie.js</a>, <a href="cookie.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -189,6 +189,11 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Utils.getCookie('name')// => name_string</code></pre>
+
+
 
 
     <h5>Parameters:</h5>
@@ -232,7 +237,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">cookie的name</td>
         </tr>
 
     
@@ -257,6 +262,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    返回查询到的字符串，若查询不到，则返回 null
+</div>
+
 
 
 <dl class="param-type">
@@ -283,7 +292,7 @@
 
     
 
-    <h4 class="name" id="setCookie"><span class="type-signature"></span>setCookie<span class="signature">(name, value, expiresDay<span class="signature-attributes">opt</span>, path)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="setCookie"><span class="type-signature"></span>setCookie<span class="signature">(name, value, expiresDay<span class="signature-attributes">opt</span>, path<span class="signature-attributes">opt</span>, domain<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {void}</span></h4>
 
     
 
@@ -295,7 +304,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cookie.js.html">cookie.js</a>, <a href="cookie.js.html#line27">line 27</a>
+        <a href="cookie.js.html">cookie.js</a>, <a href="cookie.js.html#line34">line 34</a>
     </li></ul></dd>
     
 
@@ -344,6 +353,11 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Utils.setCookie('name','name_string',1,'/page1','xx.xxx.com')Utils.setCookie('name','name_string')</code></pre>
 
 
 
@@ -405,7 +419,7 @@
                 </td>
             
 
-            <td class="description last"></td>
+            <td class="description last">cookie的name</td>
         </tr>
 
     
@@ -446,7 +460,7 @@
                 </td>
             
 
-            <td class="description last"></td>
+            <td class="description last">需要设置的值</td>
         </tr>
 
     
@@ -485,7 +499,7 @@
                 </td>
             
 
-            <td class="description last">有效天数，默认为0，会话cookie</td>
+            <td class="description last">有效天数，默认为0</td>
         </tr>
 
     
@@ -507,6 +521,8 @@
             
                 <td class="attributes">
                 
+                    &lt;optional><br>
+                
 
                 
 
@@ -517,10 +533,51 @@
             
                 <td class="default">
                 
+                    <code>'/'</code>
+                
                 </td>
             
 
-            <td class="description last"></td>
+            <td class="description last">cookie path</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>domain</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>''</code>
+                
+                </td>
+            
+
+            <td class="description last">cookie domain</td>
         </tr>
 
     
@@ -568,7 +625,7 @@
 
     
 
-    <h4 class="name" id="delCookie"><span class="type-signature"></span>delCookie<span class="signature">(name)</span><span class="type-signature"> &rarr; {void}</span></h4>
+    <h4 class="name" id="delCookie"><span class="type-signature"></span>delCookie<span class="signature">(name, path<span class="signature-attributes">opt</span>, domain<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {void}</span></h4>
 
     
 
@@ -580,7 +637,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cookie.js.html">cookie.js</a>, <a href="cookie.js.html#line48">line 48</a>
+        <a href="cookie.js.html">cookie.js</a>, <a href="cookie.js.html#line63">line 63</a>
     </li></ul></dd>
     
 
@@ -631,6 +688,11 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Utils.delCookie('name','/','')</code></pre>
+
+
 
 
     <h5>Parameters:</h5>
@@ -646,7 +708,11 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -671,10 +737,100 @@
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
             
 
-            <td class="description last"></td>
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">cookie name</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>'/'</code>
+                
+                </td>
+            
+
+            <td class="description last">cookie path</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>domain</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>''</code>
+                
+                </td>
+            
+
+            <td class="description last">cookie domain</td>
         </tr>
 
     
@@ -954,7 +1110,7 @@
 
     
 
-    <h4 class="name" id="searchParams"><span class="type-signature"></span>searchParams<span class="signature">(search)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="searchParams"><span class="type-signature"></span>searchParams<span class="signature">(search<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {object}</span></h4>
 
     
 
@@ -1037,7 +1193,11 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1062,7 +1222,23 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>location.search</code>
+                
+                </td>
             
 
             <td class="description last">链接中的 search 部分，若不传，则默认取当前页面链接 location.search</td>
@@ -1280,7 +1456,7 @@
 
     
 
-    <h4 class="name" id="filterEmptyVal"><span class="type-signature"></span>filterEmptyVal<span class="signature">(需要过滤的对象)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="filterEmptyVal"><span class="type-signature"></span>filterEmptyVal<span class="signature">(obj)</span><span class="type-signature"> &rarr; {object}</span></h4>
 
     
 
@@ -1375,7 +1551,7 @@
 
         <tr>
             
-                <td class="name"><code>需要过滤的对象</code></td>
+                <td class="name"><code>obj</code></td>
             
 
             <td class="type">
@@ -1391,7 +1567,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">需要过滤的对象</td>
         </tr>
 
     
@@ -3857,7 +4033,7 @@
 
 
 <div class="description usertext">
-    为了避免组件已经销毁，但异步函数还未结束导致的异常 [高阶组件]
+    为了避免组件已经销毁，但异步函数还未结束导致的异常
 </div>
 
 
@@ -4501,7 +4677,7 @@
 
 
 <div class="description usertext">
-    过滤字符串中的表情和前后空格
+    过滤字符串中的表情
 </div>
 
 
@@ -4514,7 +4690,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>Utils.filterEmojiAndSpace('  aa  ')// => 'aa'</code></pre>
+    <pre class="prettyprint"><code>Utils.filterEmojiAndSpace('aa')// => 'aa'</code></pre>
 
 
 
@@ -5116,7 +5292,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line9">line 9</a>
+        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -5156,7 +5332,7 @@
 
 
 <div class="description usertext">
-    验证手机号是否合法，为适应更多网络电话号段，不对号段做校验
+    验证手机号是否合法，为适应更多网络电话号段，不对号段做校验，校验规则为：1.长度11位的数字 2.首位需为1 ，第二位为1到9之间的数值，其余位数为0到9间的数值
 </div>
 
 
@@ -5165,6 +5341,11 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Utils.isPhoneNumber('18512344321')// => trueUtils.isPhoneNumber(20012344321)// => false</code></pre>
 
 
 
@@ -5201,6 +5382,9 @@
             
                 
 <span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
 
 
             
@@ -5210,7 +5394,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">需要校验的手机号</td>
         </tr>
 
     
@@ -5235,508 +5419,10 @@
 <h5>Returns:</h5>
 
         
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="isiOS"><span class="type-signature"></span>isiOS<span class="signature">(ua<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line27">line 27</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    判断平台是否是 iOS
+<div class="param-desc">
+    返回检验结果
 </div>
 
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>ua</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>window.navigator.userAgent</code>
-                
-                </td>
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="isAndroid"><span class="type-signature"></span>isAndroid<span class="signature">(ua<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line41">line 41</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    判断平台是否是安卓
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>ua</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>window.navigator.userAgent</code>
-                
-                </td>
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="isObject"><span class="type-signature"></span>isObject<span class="signature">(obj)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line55">line 55</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    是否是对象类型
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>obj</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
 
 
 <dl class="param-type">
@@ -5772,7 +5458,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line66">line 66</a>
+        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line37">line 37</a>
     </li></ul></dd>
     
 
@@ -5823,6 +5509,11 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Utils.isEmail('lama.loca.loca123@inca.com')// => trueUtils.isEmail('testmail@mail.com.')// => false</code></pre>
+
+
 
 
     <h5>Parameters:</h5>
@@ -5866,7 +5557,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">需要校验的邮箱字符串</td>
         </tr>
 
     
@@ -5891,6 +5582,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    返回判断结果
+</div>
+
 
 
 <dl class="param-type">
@@ -5914,7 +5609,7 @@
 
     
 
-    <h4 class="name" id="isNull"><span class="type-signature"></span>isNull<span class="signature">(val)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="isiOS"><span class="type-signature"></span>isiOS<span class="signature">(ua<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 
@@ -5926,7 +5621,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line83">line 83</a>
+        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line57">line 57</a>
     </li></ul></dd>
     
 
@@ -5966,7 +5661,7 @@
 
 
 <div class="description usertext">
-    判断目标值是否是 Null
+    判断平台是否是 iOS
 </div>
 
 
@@ -5975,6 +5670,723 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Utils.isiOS('Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1')// => true</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ua</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>window.navigator.userAgent</code>
+                
+                </td>
+            
+
+            <td class="description last">ua字符串</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    返回判断结果
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="isAndroid"><span class="type-signature"></span>isAndroid<span class="signature">(ua<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line74">line 74</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    判断平台是否是安卓
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Utils.isAndroid('Mozilla/5.0 (Linux; Android 8.0.0; Pixel 2 XL Build/OPD1.170816.004) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Mobile Safari/537.36')// => true</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ua</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>window.navigator.userAgent</code>
+                
+                </td>
+            
+
+            <td class="description last">ua字符串</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    返回判断结果
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="isWechat"><span class="type-signature"></span>isWechat<span class="signature">(ua<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line91">line 91</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    判断平台是否是微信
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Utils.isWechat('Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.3 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1  MicroMessenger/7.0.4')// => true</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ua</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>window.navigator.userAgent</code>
+                
+                </td>
+            
+
+            <td class="description last">ua字符串</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    返回判断结果
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="isObject"><span class="type-signature"></span>isObject<span class="signature">(obj)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line110">line 110</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    是否是对象类型
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Utils.isObject({})// => trueUtils.isObject(123)// => false</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">需要判断的值</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    返回判断结果
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="isNull"><span class="type-signature"></span>isNull<span class="signature">(val)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validate.js.html">validate.js</a>, <a href="validate.js.html#line127">line 127</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    判断值是否是 Null
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>Utils.isNull(null)// => trueUtils.isNull(123)// => false</code></pre>
 
 
 
@@ -6020,7 +6432,7 @@
 
             
 
-            <td class="description last">目标值</td>
+            <td class="description last">需要判断的值</td>
         </tr>
 
     
@@ -6045,6 +6457,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    返回判断结果
+</div>
+
 
 
 <dl class="param-type">
@@ -6083,7 +6499,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Apr 06 2020 20:10:10 GMT+0800 (GMT+08:00) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Apr 07 2020 15:54:50 GMT+0800 (中国标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

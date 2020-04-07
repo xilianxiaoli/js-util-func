@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const Utils = require('../lib/index').default;
 
-describe.skip('string', function () {
+describe('string', function () {
     it('过滤字符串中的表情和空格 filterEmojiAndSpace', done => {
         expect(Utils.filterEmojiAndSpace('aa')).to.be.equal('aa')
         done()
@@ -17,6 +17,7 @@ describe.skip('string', function () {
     it('翻转字符串 reversString', done => {
         expect(Utils.reversString('abc')).to.be.equal('cba')
         expect(Utils.reversString('')).to.be.equal('')
+        expect(Utils.reversString(123)).to.be.equal(123)
         done()
     })
     it('生成随机字符串 genRandomStr', done => {

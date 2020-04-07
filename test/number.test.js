@@ -2,9 +2,10 @@
 const expect = require('chai').expect;
 const Utils = require('../lib/index').default;
 
-describe.skip('number',function(){
+describe('number',function(){
     it('金额千分化 moneyThousandFormat',(done)=>{
         expect(Utils.moneyThousandFormat('9',0)).to.equal('9');
+        expect(Utils.moneyThousandFormat('9.9',-1)).to.equal('9.9');
         expect(Utils.moneyThousandFormat(9)).to.equal('9');
         expect(Utils.moneyThousandFormat(99)).to.equal('99');
         expect(Utils.moneyThousandFormat(999)).to.equal('999');
@@ -43,6 +44,7 @@ describe.skip('number',function(){
         expect(Utils.floatAddZero(-1.2,2)).to.equal('-1.20')
         expect(Utils.floatAddZero(1.234,2)).to.equal('1.234')
         expect(Utils.floatAddZero(1.234,2)).to.equal('1.234')
+        expect(Utils.floatAddZero(1,2)).to.equal('1.00')
         done()
     })
     it('保留小数点后n位，不进行四舍五入操作 splitPoint',done=>{
