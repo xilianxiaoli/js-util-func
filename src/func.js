@@ -36,7 +36,7 @@ export function watchTimeInterval(time, point, func, timeOverFunc) {
  * @description
  * 获取链接的参数，返回对象格式
  * @export
- * @param {string} search 链接中的 search 部分，若不传，则默认取当前页面链接 location.search
+ * @param {string} [search=location.search] 链接中的 search 部分，若不传，则默认取当前页面链接 location.search
  * @returns {object} 返回键值对
  * @example
  * Utils.searchParams("?q=js&qs=n")

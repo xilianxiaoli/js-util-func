@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const Utils = require('../lib/index').default;
 
-describe('string', function () {
+describe.skip('string', function () {
     it('过滤字符串中的表情和空格 filterEmojiAndSpace', done => {
         expect(Utils.filterEmojiAndSpace('aa')).to.be.equal('aa')
         done()

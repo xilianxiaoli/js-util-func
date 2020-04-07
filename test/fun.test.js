@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const Utils = require('../lib/index').default;
 
-describe('func', function () {
+describe.skip('func', function () {
     it('计时器-浏览器进程切后台后，去除进程暂停时间 watchTimeInterval', done => {
         let i = 0
         Utils.watchTimeInterval(5, 1000, () => {

@@ -1,7 +1,7 @@
 
 /**
  * @description
- * 为了避免组件已经销毁，但异步函数还未结束导致的异常 [高阶组件]
+ * 为了避免组件已经销毁，但异步函数还未结束导致的异常
  * @export
  * @param {object} targetComponent 执行组件
  * @returns {object} 执行组件
