@@ -18,3 +18,25 @@
 2. 方法需要有标注注释，用于生成文档
 3. 方法需要有对应的测试用例，方法覆盖率须达到 100% ，测试用例尽可能涵盖多种情况
 4. 为了便于开发和调试，可先启动 task:npm ，在 demo/index 中编写测试代码
+
+### nginx 配置
+为了便于查看接口文档和测试报告，所以用nginx做简单的文件服务器
+```config
+server {
+    listen     6060;
+    server_name localhost;
+    root D:\\mycode\\js-util-func;
+    # index index.html;
+    location /docs/ {
+        # root D:\\mycode\\js-util-func\\docs;
+        autoindex on;
+    }
+    location /test_report/mocha/ {
+        index mochawesome.html;
+        autoindex on;
+    }
+    location /test_report/nyc/ {
+        autoindex on;
+    }
+}
+```
