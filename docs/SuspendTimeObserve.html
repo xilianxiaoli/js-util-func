@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>string.js - Documentation</title>
+    <title>SuspendTimeObserve - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,94 +34,310 @@
 
 <div id="main">
     
-    <h1 class="page-title">string.js</h1>
+    <h1 class="page-title">SuspendTimeObserve</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>
-/**
- * @description
- * 过滤字符串中的表情
- * @export
- * @param {string} str 需要过滤的字符串
- * @returns {string} 返回过滤后的字符串
- * @example
- * Utils.filterEmojiAndSpace('aa')
- * // => 'aa'
- */
-export function filterEmojiAndSpace(str) {
-    const emojiReg = /\w*(\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]\w*/g;
-    return str.replace(emojiReg, '');
-}
+        <h2>
+        SuspendTimeObserve
+        </h2>
+        
+    
+</header>
 
-/**
- * @description
- * 过滤字符串前后空格
- * @export
- * @param {string} str 需要过滤的字符串
- * @returns {string} 返回过滤后的字符串
- * @example
- * Utils.trim('  sdfsd  ');
- * // => 'sdfsd'
- */
-export function trim(str) {
-    return str.replace(/(^\s*)|(\s*$)/g, "");
-}
+<article>
+    
+        <div class="container-overview">
+        
+            
 
-/**
- * @description
- * 翻转字符串
- * @export
- * @param {string} str 需要翻转的字符串 
- * @returns {string} 返回翻转后的字符串
- * @example
- * Utils.reversString('abc')
- * // => 'cba'
- */
-export function reversString(str) {
-    if (typeof (str) !== 'string') {
-        console.warn('reversString should be string')
-        return str
-    }
-    let re = '';
-    for (const iterator of str) {
-        re = iterator + re;
-    }
-    return re;
-}
+    
 
-/**
- * @description
- * 生成随机字符串，字符包括大小写字母和数字
- * @export
- * @param {number|string} len 生成的字符串长度
- * @returns {string} 返回随机字符串
- * @example
- * Utils.genRandomStr(5)
- * // => 'abcdf' 随机字符串
- */
-export function genRandomStr(len) {
-    len = Number(len)
-    if (!len) {
-        return '';
-    }
-    let text = '';
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    <h4 class="name" id="SuspendTimeObserve"><span class="type-signature"></span>new SuspendTimeObserve<span class="signature">()</span><span class="type-signature"></span></h4>
 
-    for (let i = 0; i &lt; len; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
+    
 
-    return text;
-}</code></pre>
-        </article>
-    </section>
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="timeNotify.js.html">timeNotify.js</a>, <a href="timeNotify.js.html#line78">line 78</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    订阅者
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        </div>
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="SuspendTimeObserve.SuspendTimeObserve.html">SuspendTimeObserve</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">(passTime)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="timeNotify.js.html">timeNotify.js</a>, <a href="timeNotify.js.html#line101">line 101</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    接收观察者的通知事件
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>passTime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">已经执行的时长，单位毫秒</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    是否继续订阅
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

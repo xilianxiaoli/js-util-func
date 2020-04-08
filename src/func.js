@@ -1,7 +1,7 @@
 
 /**
  * @description
- * 计时器-浏览器进程切后台后，去除进程暂停时间
+ * 倒计时-计时器-浏览器进程切后台后，去除进程暂停时间
  * @param {number} time 倒计时时长，单位秒
  * @param {number} point 倒计时间隔
  * @param {function} func 倒计时执行函数
@@ -90,7 +90,7 @@ export function isEmptyObject(obj) {
  * // => {age: 0,sex: false}
  */
 export function filterEmptyVal(obj) {
-    if ( obj === null || typeof (obj) !== 'object') {
+    if (obj === null || typeof (obj) !== 'object') {
         return obj
     }
     let filter = {};
@@ -160,14 +160,18 @@ export function deepMakeObjToStr(data, joinStr = '&') {
 export function secondToTime(seconds) {
     seconds = Number(seconds)
     if (seconds < 0) {
-        console.warn('seconds need more than 0');
-        return
+        return {
+            day: 0,
+            hour: 0,
+            minute: 0,
+            second: 0
+        }
     }
     const day = Math.floor(seconds / (60 * 60 * 24));
     const daySecond = day * 60 * 60 * 24;
     const hour = Math.floor((seconds - daySecond) / (60 * 60));
     const minute = Math.floor((seconds - daySecond - hour * 60 * 60) / 60);
-    const second = seconds - daySecond - hour * 60 * 60 - minute * 60;
+    const second = Math.ceil(seconds - daySecond - hour * 60 * 60 - minute * 60);
     return {
         day,
         hour,
@@ -205,7 +209,7 @@ export function isEqual(obj1, obj2) {
         const t2 = obj2[attr] instanceof Object;
         if (t1 && t2) {
             let re = isEqual(obj1[attr], obj2[attr]);
-            if(!re) return false;
+            if (!re) return false;
         } else if (obj1[attr] !== obj2[attr]) {
             return false;
         }
@@ -225,7 +229,7 @@ export function isEqual(obj1, obj2) {
  * // => [{name:'a'},{name:'b'},1,2]
  */
 export function uniqueArray(array) {
-    if(!Array.isArray(array)){
+    if (!Array.isArray(array)) {
         console.warn('obj should be array')
         return
     }

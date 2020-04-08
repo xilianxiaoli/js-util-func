@@ -4,6 +4,7 @@ import * as funcUtil from './func'
 import * as stringUtil from './string'
 import * as validateUtil from './validate'
 import * as reactUtil from './react.js'
+import * as timeNotify from './timeNotify.js'
 
 let output = {
       ...numberUtil,
@@ -11,7 +12,8 @@ let output = {
       ...funcUtil,
       ...stringUtil,
       ...validateUtil,
-      ...reactUtil
+      ...reactUtil,
+      ...timeNotify
 }
 
 export default {

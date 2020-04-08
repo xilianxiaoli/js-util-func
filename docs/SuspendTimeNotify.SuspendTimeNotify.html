@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>string.js - Documentation</title>
+    <title>SuspendTimeNotify - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,94 +34,212 @@
 
 <div id="main">
     
-    <h1 class="page-title">string.js</h1>
+    <h1 class="page-title">SuspendTimeNotify</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>
-/**
- * @description
- * 过滤字符串中的表情
- * @export
- * @param {string} str 需要过滤的字符串
- * @returns {string} 返回过滤后的字符串
- * @example
- * Utils.filterEmojiAndSpace('aa')
- * // => 'aa'
- */
-export function filterEmojiAndSpace(str) {
-    const emojiReg = /\w*(\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]\w*/g;
-    return str.replace(emojiReg, '');
-}
+        <h2>
+            <span class="ancestors"><a href="SuspendTimeNotify.html">SuspendTimeNotify</a>.</span>
+        
+        SuspendTimeNotify
+        </h2>
+        
+    
+</header>
 
-/**
- * @description
- * 过滤字符串前后空格
- * @export
- * @param {string} str 需要过滤的字符串
- * @returns {string} 返回过滤后的字符串
- * @example
- * Utils.trim('  sdfsd  ');
- * // => 'sdfsd'
- */
-export function trim(str) {
-    return str.replace(/(^\s*)|(\s*$)/g, "");
-}
+<article>
+    
+        <div class="container-overview">
+        
+            
 
-/**
- * @description
- * 翻转字符串
- * @export
- * @param {string} str 需要翻转的字符串 
- * @returns {string} 返回翻转后的字符串
- * @example
- * Utils.reversString('abc')
- * // => 'cba'
- */
-export function reversString(str) {
-    if (typeof (str) !== 'string') {
-        console.warn('reversString should be string')
-        return str
-    }
-    let re = '';
-    for (const iterator of str) {
-        re = iterator + re;
-    }
-    return re;
-}
+    
 
-/**
- * @description
- * 生成随机字符串，字符包括大小写字母和数字
- * @export
- * @param {number|string} len 生成的字符串长度
- * @returns {string} 返回随机字符串
- * @example
- * Utils.genRandomStr(5)
- * // => 'abcdf' 随机字符串
- */
-export function genRandomStr(len) {
-    len = Number(len)
-    if (!len) {
-        return '';
-    }
-    let text = '';
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    <h4 class="name" id="SuspendTimeNotify"><span class="type-signature"></span>new SuspendTimeNotify<span class="signature">(intervalPoint<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
-    for (let i = 0; i &lt; len; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
+    
 
-    return text;
-}</code></pre>
-        </article>
-    </section>
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="timeNotify.js.html">timeNotify.js</a>, <a href="timeNotify.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    Creates an instance of SuspendTimeNotify.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>intervalPoint</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>200</code>
+                
+                </td>
+            
+
+            <td class="description last">intervalPoint:计时器执行的间隔时间</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

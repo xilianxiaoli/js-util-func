@@ -96,7 +96,7 @@ describe('func', function () {
         expect(Utils.secondToTime(60 * 60)).to.deep.equal({day: 0, hour: 1, minute: 0, second: 0})
         expect(Utils.secondToTime(60 * 60 + 1)).to.deep.equal({day: 0, hour: 1, minute: 0, second: 1})
         expect(Utils.secondToTime(60 * 60 * 24 + 1)).to.deep.equal({day: 1, hour: 0, minute: 0, second: 1})
-        expect(Utils.secondToTime(-1)).to.deep.equal(undefined)
+        expect(Utils.secondToTime(-1)).to.deep.equal({day: 0, hour: 0, minute: 0, second: 0})
         done()
     })
     it('比较两个对象是否相等 isEqual',done=>{

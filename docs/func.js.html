@@ -29,7 +29,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#getCookie">getCookie</a></li><li><a href="global.html#setCookie">setCookie</a></li><li><a href="global.html#delCookie">delCookie</a></li><li><a href="global.html#watchTimeInterval">watchTimeInterval</a></li><li><a href="global.html#searchParams">searchParams</a></li><li><a href="global.html#isEmptyObject">isEmptyObject</a></li><li><a href="global.html#filterEmptyVal">filterEmptyVal</a></li><li><a href="global.html#deepMakeObjToStr">deepMakeObjToStr</a></li><li><a href="global.html#secondToTime">secondToTime</a></li><li><a href="global.html#isEqual">isEqual</a></li><li><a href="global.html#uniqueArray">uniqueArray</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#moneyThousandFormat">moneyThousandFormat</a></li><li><a href="global.html#toFixed">toFixed</a></li><li><a href="global.html#numAddZero">numAddZero</a></li><li><a href="global.html#floatAddZero">floatAddZero</a></li><li><a href="global.html#splitPoint">splitPoint</a></li><li><a href="global.html#decimalToPercent">decimalToPercent</a></li><li><a href="global.html#moneyUppercase">moneyUppercase</a></li><li><a href="global.html#InjectUnmount">InjectUnmount</a></li><li><a href="global.html#withDefaultProps">withDefaultProps</a></li><li><a href="global.html#mapPropsComponent">mapPropsComponent</a></li><li><a href="global.html#getEffectFunc">getEffectFunc</a></li><li><a href="global.html#filterEmojiAndSpace">filterEmojiAndSpace</a></li><li><a href="global.html#trim">trim</a></li><li><a href="global.html#reversString">reversString</a></li><li><a href="global.html#genRandomStr">genRandomStr</a></li><li><a href="global.html#isPhoneNumber">isPhoneNumber</a></li><li><a href="global.html#isEmail">isEmail</a></li><li><a href="global.html#isiOS">isiOS</a></li><li><a href="global.html#isAndroid">isAndroid</a></li><li><a href="global.html#isWechat">isWechat</a></li><li><a href="global.html#isObject">isObject</a></li><li><a href="global.html#isNull">isNull</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="SuspendTimeNotify.html">SuspendTimeNotify</a><ul class='methods'><li data-type='method' style='display: none;'><a href="SuspendTimeNotify.html#attach">attach</a></li><li data-type='method' style='display: none;'><a href="SuspendTimeNotify.html#stop">stop</a></li><li data-type='method' style='display: none;'><a href="SuspendTimeNotify.html#notifyObserver">notifyObserver</a></li><li data-type='method' style='display: none;'><a href="SuspendTimeNotify.html#start">start</a></li></ul></li><li><a href="SuspendTimeNotify.SuspendTimeNotify.html">SuspendTimeNotify</a></li><li><a href="SuspendTimeObserve.html">SuspendTimeObserve</a><ul class='methods'><li data-type='method' style='display: none;'><a href="SuspendTimeObserve.html#update">update</a></li></ul></li><li><a href="SuspendTimeObserve.SuspendTimeObserve.html">SuspendTimeObserve</a></li></ul><h3>Global</h3><ul><li><a href="global.html#getCookie">getCookie</a></li><li><a href="global.html#setCookie">setCookie</a></li><li><a href="global.html#delCookie">delCookie</a></li><li><a href="global.html#watchTimeInterval">watchTimeInterval</a></li><li><a href="global.html#searchParams">searchParams</a></li><li><a href="global.html#isEmptyObject">isEmptyObject</a></li><li><a href="global.html#filterEmptyVal">filterEmptyVal</a></li><li><a href="global.html#deepMakeObjToStr">deepMakeObjToStr</a></li><li><a href="global.html#secondToTime">secondToTime</a></li><li><a href="global.html#isEqual">isEqual</a></li><li><a href="global.html#uniqueArray">uniqueArray</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#moneyThousandFormat">moneyThousandFormat</a></li><li><a href="global.html#toFixed">toFixed</a></li><li><a href="global.html#numAddZero">numAddZero</a></li><li><a href="global.html#floatAddZero">floatAddZero</a></li><li><a href="global.html#splitPoint">splitPoint</a></li><li><a href="global.html#decimalToPercent">decimalToPercent</a></li><li><a href="global.html#moneyUppercase">moneyUppercase</a></li><li><a href="global.html#InjectUnmount">InjectUnmount</a></li><li><a href="global.html#withDefaultProps">withDefaultProps</a></li><li><a href="global.html#mapPropsComponent">mapPropsComponent</a></li><li><a href="global.html#getEffectFunc">getEffectFunc</a></li><li><a href="global.html#filterEmojiAndSpace">filterEmojiAndSpace</a></li><li><a href="global.html#trim">trim</a></li><li><a href="global.html#reversString">reversString</a></li><li><a href="global.html#genRandomStr">genRandomStr</a></li><li><a href="global.html#isPhoneNumber">isPhoneNumber</a></li><li><a href="global.html#isEmail">isEmail</a></li><li><a href="global.html#isiOS">isiOS</a></li><li><a href="global.html#isAndroid">isAndroid</a></li><li><a href="global.html#isWechat">isWechat</a></li><li><a href="global.html#isObject">isObject</a></li><li><a href="global.html#isNull">isNull</a></li></ul>
 </nav>
 
 <div id="main">
@@ -47,7 +47,7 @@
             <pre class="prettyprint source linenums"><code>
 /**
  * @description
- * 计时器-浏览器进程切后台后，去除进程暂停时间
+ * 倒计时-计时器-浏览器进程切后台后，去除进程暂停时间
  * @param {number} time 倒计时时长，单位秒
  * @param {number} point 倒计时间隔
  * @param {function} func 倒计时执行函数
@@ -89,6 +89,7 @@ export function watchTimeInterval(time, point, func, timeOverFunc) {
  * // => { q: 'js', qs: 'n' }
  */
 export function searchParams(search) {
+    /* istanbul ignore if */
     if (!search) {
         search = location.search
     }
@@ -135,7 +136,7 @@ export function isEmptyObject(obj) {
  * // => {age: 0,sex: false}
  */
 export function filterEmptyVal(obj) {
-    if ( obj === null || typeof (obj) !== 'object') {
+    if (obj === null || typeof (obj) !== 'object') {
         return obj
     }
     let filter = {};
@@ -205,14 +206,18 @@ export function deepMakeObjToStr(data, joinStr = '&amp;') {
 export function secondToTime(seconds) {
     seconds = Number(seconds)
     if (seconds &lt; 0) {
-        console.warn('seconds need more than 0');
-        return
+        return {
+            day: 0,
+            hour: 0,
+            minute: 0,
+            second: 0
+        }
     }
     const day = Math.floor(seconds / (60 * 60 * 24));
     const daySecond = day * 60 * 60 * 24;
     const hour = Math.floor((seconds - daySecond) / (60 * 60));
     const minute = Math.floor((seconds - daySecond - hour * 60 * 60) / 60);
-    const second = seconds - daySecond - hour * 60 * 60 - minute * 60;
+    const second = Math.ceil(seconds - daySecond - hour * 60 * 60 - minute * 60);
     return {
         day,
         hour,
@@ -250,7 +255,7 @@ export function isEqual(obj1, obj2) {
         const t2 = obj2[attr] instanceof Object;
         if (t1 &amp;&amp; t2) {
             let re = isEqual(obj1[attr], obj2[attr]);
-            if(!re) return false;
+            if (!re) return false;
         } else if (obj1[attr] !== obj2[attr]) {
             return false;
         }
@@ -270,7 +275,7 @@ export function isEqual(obj1, obj2) {
  * // => [{name:'a'},{name:'b'},1,2]
  */
 export function uniqueArray(array) {
-    if(!Array.isArray(array)){
+    if (!Array.isArray(array)) {
         console.warn('obj should be array')
         return
     }
@@ -306,7 +311,7 @@ export function sleep(time) {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Apr 07 2020 15:54:50 GMT+0800 (中国标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Wed Apr 08 2020 10:29:15 GMT+0800 (中国标准时间) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

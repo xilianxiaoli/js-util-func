@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>string.js - Documentation</title>
+    <title>timeNotify.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">string.js</h1>
+    <h1 class="page-title">timeNotify.js</h1>
     
 
     
@@ -44,81 +44,116 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>
-/**
+            <pre class="prettyprint source linenums"><code>/**
  * @description
- * 过滤字符串中的表情
- * @export
- * @param {string} str 需要过滤的字符串
- * @returns {string} 返回过滤后的字符串
- * @example
- * Utils.filterEmojiAndSpace('aa')
- * // => 'aa'
+ * 为解决页面中同时存在多个倒计时的情况下，生成多个计时器导致计时出现偏差的问题。
+ * 采用观察者模式，由一个定时器控制多个倒计时事件
+ * @class SuspendTimeNotify
  */
-export function filterEmojiAndSpace(str) {
-    const emojiReg = /\w*(\ud83c[\udf00-\udfff])|(\ud83d[\udc00-\ude4f\ude80-\udeff])|[\u2600-\u2B55]\w*/g;
-    return str.replace(emojiReg, '');
+class SuspendTimeNotify {
+    /**
+     * Creates an instance of SuspendTimeNotify.
+     * @param {*} [ intervalPoint=200 ] intervalPoint:计时器执行的间隔时间
+     * @memberof SuspendTimeNotify
+     */
+    constructor(params) {
+        const {intervalPoint=200} = params || {}
+        this._currentTime = Date.now();
+        this._passTime = 0;
+        this.observers = [];
+        this._interval = null;
+        this._intervalPoint = intervalPoint
+    }
+    /**
+     * @description
+     * 添加订阅者
+     * @param {object} observer
+     * @memberof SuspendTimeNotify
+     */
+    attach(observer) {
+        let item = {
+            key: `${this.observers.length}_key`,
+            target: observer
+        }
+        this.observers.push(item);
+    }
+    /**
+     * @description
+     * 停止观察者的倒计时对象和情况订阅者
+     * @memberof SuspendTimeNotify
+     */
+    stop() {
+        this.observers = [];
+        this._interval &amp;&amp; clearInterval(this._interval)
+    }
+    /**
+     * @description
+     * 通知订阅者，订阅者通过 update 返回是否还继续订阅，若为 false ，则从订阅者队列中删除
+     * @memberof SuspendTimeNotify
+     */
+    notifyObserver() {
+        let deleteKeys = '';
+        for (const { key, target } of this.observers) {
+            let result = target.update(this._passTime);
+            if (result) {
+                deleteKeys += `${key},`
+            }
+        }
+        if (deleteKeys) {
+            this.observers = this.observers.filter(({ key }) => deleteKeys.indexOf(key) &lt; 0)
+        }
+    }
+    /**
+     * @description
+     * 启动倒计时
+     * @memberof SuspendTimeNotify
+     */
+    start() {
+        if (this._interval) {
+            clearInterval(this._interval)
+        }
+        this._interval = setInterval(() => {
+            let _nowTime = Date.now();
+            this._passTime += _nowTime - this._currentTime;
+            this._currentTime = _nowTime;
+            this.notifyObserver();
+        }, this._intervalPoint);
+    }
 }
 
 /**
  * @description
- * 过滤字符串前后空格
- * @export
- * @param {string} str 需要过滤的字符串
- * @returns {string} 返回过滤后的字符串
- * @example
- * Utils.trim('  sdfsd  ');
- * // => 'sdfsd'
+ * 订阅者
+ * @class SuspendTimeObserve
  */
-export function trim(str) {
-    return str.replace(/(^\s*)|(\s*$)/g, "");
+class SuspendTimeObserve {
+    /**
+     *Creates an instance of SuspendTimeObserve.
+     * @param {*} item 业务对象，业务对象可通过 run 方法获取定时器执行回调
+     * @param {*} countdownTime 需要倒计时的总时长，单位毫秒
+     * @memberof SuspendTimeObserve
+     */
+    constructor(item, countdownTime) {
+        this.item = item
+        this.countdownTime = countdownTime
+    }
+    /**
+     * @desc
+     * 接收观察者的通知事件
+     * @param {*} passTime 已经执行的时长，单位毫秒
+     * @returns {boolean} 是否继续订阅
+     * @memberof SuspendTimeObserve
+     */
+    update(passTime) {
+        var leftCountdownTime = this.countdownTime - passTime;
+        this.item.run &amp;&amp; this.item.run({ leftCountdownTime, passTime });
+        return leftCountdownTime &lt;= 0;
+    }
 }
 
-/**
- * @description
- * 翻转字符串
- * @export
- * @param {string} str 需要翻转的字符串 
- * @returns {string} 返回翻转后的字符串
- * @example
- * Utils.reversString('abc')
- * // => 'cba'
- */
-export function reversString(str) {
-    if (typeof (str) !== 'string') {
-        console.warn('reversString should be string')
-        return str
-    }
-    let re = '';
-    for (const iterator of str) {
-        re = iterator + re;
-    }
-    return re;
-}
-
-/**
- * @description
- * 生成随机字符串，字符包括大小写字母和数字
- * @export
- * @param {number|string} len 生成的字符串长度
- * @returns {string} 返回随机字符串
- * @example
- * Utils.genRandomStr(5)
- * // => 'abcdf' 随机字符串
- */
-export function genRandomStr(len) {
-    len = Number(len)
-    if (!len) {
-        return '';
-    }
-    let text = '';
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-    for (let i = 0; i &lt; len; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-
-    return text;
+export {
+    SuspendTimeNotify,
+    SuspendTimeObserve
 }</code></pre>
         </article>
     </section>
