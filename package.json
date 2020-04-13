@@ -14,8 +14,7 @@
     "demo": "babel-node --inspect ./demo/index.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git@wx-gitlab.xunlei.cn:lizhencheng/js-util-func.git"
+    "type": "git"
   },
   "keywords": [],
   "author": "",

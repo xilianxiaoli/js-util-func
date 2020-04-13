@@ -4,7 +4,7 @@ const Utils = require('../lib/index').default;
 describe('func', function () {
     it('计时器-浏览器进程切后台后，去除进程暂停时间 watchTimeInterval', done => {
         let i = 0
-        Utils.watchTimeInterval(5, 1000, () => {
+        Utils.watchTimeInterval(5*1000, 1000, () => {
             i++
         }, () => {
             expect(i).to.be.within(3, 4)
@@ -22,7 +22,7 @@ describe('func', function () {
     })
     it('计时器-浏览器进程照常执行 watchTimeInterval', done => {
         let i = 0
-        Utils.watchTimeInterval(5, 1000, () => {
+        Utils.watchTimeInterval(5*1000, 1000, () => {
             i++
         }, () => {
             expect(i).to.be.equal(5)
