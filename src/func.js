@@ -2,7 +2,7 @@
 /**
  * @description
  * 倒计时-计时器-浏览器进程切后台后，去除进程暂停时间
- * @param {number} time 倒计时时长，单位秒
+ * @param {number} time 倒计时时长，单位毫秒
  * @param {number} point 倒计时间隔
  * @param {function} func 倒计时执行函数
  * @param {function} timeOverFunc 倒计时结束执行函数
@@ -14,7 +14,7 @@ export function watchTimeInterval(time, point, func, timeOverFunc) {
     let _time = time;
     let startTime = new Date().valueOf();
     let interval = setInterval(() => {
-        let gap = Math.floor((new Date().valueOf() - startTime - point) / 1000);
+        let gap = (new Date().valueOf() - startTime - point);
         if (gap < 0) {
             gap = 0;
         }
@@ -22,7 +22,7 @@ export function watchTimeInterval(time, point, func, timeOverFunc) {
         startTime = new Date().valueOf();
         if (_time > 0) {
             func && func();
-            _time--
+            _time -= point;
         } else {
             interval && clearInterval(interval)
             timeOverFunc && timeOverFunc();

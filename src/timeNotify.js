@@ -12,11 +12,11 @@ class SuspendTimeNotify {
      */
     constructor(params) {
         const {intervalPoint=200} = params || {}
-        this._currentTime = Date.now();
-        this._passTime = 0;
-        this.observers = [];
-        this._interval = null;
-        this._intervalPoint = intervalPoint
+        this._currentTime = Date.now(); // 定时器回调函数执行的当前时间点
+        this._passTime = 0; // 已经执行的时长
+        this.observers = []; // 订阅者列表
+        this._interval = null; // 定时器id
+        this._intervalPoint = intervalPoint // 定时器间隔
     }
     /**
      * @description
