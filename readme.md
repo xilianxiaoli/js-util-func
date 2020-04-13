@@ -28,7 +28,6 @@ server {
     root D:\\mycode\\js-util-func;
     # index index.html;
     location /docs/ {
-        # root D:\\mycode\\js-util-func\\docs;
         autoindex on;
     }
     location /test_report/mocha/ {
